@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*****************************
 header.php
@@ -15,7 +15,7 @@ Head element of each window
   <meta name="description" content="Spot anything, anywhere, anytime.">
   <meta name="author" content="Bing Steup">
 
-  <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;' name='viewport' />
+  <meta content='width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;' name='viewport' />
 
   <!-- jQuery
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
