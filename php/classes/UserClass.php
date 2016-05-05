@@ -1,32 +1,32 @@
-<?php 
+<?php
 
 /*****************************
 UserClass.php
 *****************************/
 
-class UserClass { 
-    protected $user_id; 
-    protected $user_username; 
+class UserClass {
+    protected $user_id;
+    protected $user_username;
     protected $user_password;
-    protected $user_nickname; 
+    protected $user_nickname;
     protected $user_spots;
-    protected $user_group; 
-    protected $user_level;  
+    protected $user_group;
+    protected $user_level;
 
     private $prefix = 'spot_hashtag_';
-    
+
     /*****************************
     * construct class
     *****************************/
-    public function __construct($user_id = 0) { 
+    public function __construct($user_id = 0) {
         $this->user_id = $user_id;
 
-        if($this->user_id > 0){      	
+        if($this->user_id > 0){
         	return $this->loadUser();
         } else {
             return false;
         }
-    } 
+    }
 
     /*****************************
     * print values of class
@@ -109,10 +109,11 @@ class UserClass {
     *****************************/
     public function validateLogin($user_username,$user_password) {
         $query = "SELECT * FROM " . $this->prefix . "user WHERE `user_username` = '" . $user_username . "' AND `user_password` = '" . $user_password . "' LIMIT 1";
+        var_dump($query);
         $result = db_query($query);
 
         $user_found = false;
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $user_found = true;
             $this->user_id = $row['user_id'];
             $this->user_username = $row['user_username'];
@@ -141,7 +142,7 @@ class UserClass {
     *****************************/
     public function loggedIn(){
         return $this->validateLogin($this->user_username,$this->user_password);
-    }    
+    }
 
     /*****************************
     * get all track for this user
@@ -187,6 +188,6 @@ class UserClass {
     public function setLevel($user_level){
         $this->user_level = $user_level;
     }
-} 
+}
 
 ?>
