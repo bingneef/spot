@@ -61,7 +61,6 @@ function initialize() {
     function error(msg) {
         user_center = false;
         initiateMap();
-        console.log(typeof msg == 'string' ? msg : "error");
     }
 
     function initiateMap(){
@@ -83,7 +82,7 @@ function initialize() {
         $('#map-canvas').height($(window).height() - $('.navbar-fixed').height());
 
         //direct keyboard controls for google maps
-        google.maps.event.addListener(map, 'tilesloaded', function() {    
+        google.maps.event.addListener(map, 'tilesloaded', function() {
             $("#map-canvas").children().children().first().children().trigger('click');
         });
 
@@ -105,7 +104,7 @@ function initialize() {
         pullUpdates();
 
         //run pullUpdates at interval
-        setInterval(function(){ 
+        setInterval(function(){
             pullUpdates();
         }, update_interval);
     }
@@ -135,15 +134,15 @@ function addMarker(marker_container, drop, image) {
     //fix size
     var icon_image = new google.maps.MarkerImage(
         image,
-        null, 
-        null, 
-        null, 
+        null,
+        null,
+        null,
         new google.maps.Size(32,32)
     );
 
     //FUTURE TODO :: IE FALLBACK :: IE DOESN'T CORRECTLY LOAD SVG IN MAPS API
     /*if(detectIE() != false){
-        icon_image = {  
+        icon_image = {
         };
     }*/
 
@@ -196,9 +195,9 @@ function pushMarkersHold(){
         bounce_marker = false;
 
     //iterate over new markers
-    for(var i = 0; i < new_markers_hold.length; i++){           
-        
-        //get icon image 
+    for(var i = 0; i < new_markers_hold.length; i++){
+
+        //get icon image
         var image = image_root + new_markers_hold[i]['icon'];
         if(new_markers_hold[i]['icon'] == ''){
             image = image_root + 'default.svg';
@@ -207,7 +206,7 @@ function pushMarkersHold(){
         //hide marker with current track_id -> only show the last of each track
         markers.forEach(function(element, index, array){
             if(new_markers_hold[i]['track_id'] == element.track_id){
-               hideMarker(element); 
+               hideMarker(element);
             }
         });
 
@@ -233,7 +232,7 @@ function pushMarkersHold(){
             statusBar('Displaying latest spots near you..');
         else
             statusBar('Displaying latest spots..');
-    } else 
+    } else
         statusBar('No spots found');
     hideStatusBarTime(5000);
 
@@ -258,16 +257,16 @@ function pullUpdates() {
         var new_markers = $.parseJSON(data).reverse();
 
         //add all markers to hold
-        for(var i = 0; i < new_markers.length; i++){ 
+        for(var i = 0; i < new_markers.length; i++){
             new_markers_hold.push(new_markers[i]);
-        }   
+        }
 
         //if first -> show; And show the user what's happening
         //not first -> place in hold
         if(first){
             statusBar(new_markers_hold.length + ' spot(s) found.');
             hideStatusBarTime(5000);
-            pushMarkersHold();        
+            pushMarkersHold();
         } else {
             if(new_markers_hold.length > 0){
                 statusBar(new_markers_hold.length + ' new spot(s). <span class="show-new">Show</span>');
@@ -278,7 +277,7 @@ function pullUpdates() {
             }
             updating = false;
         }
-        
+
     });
 }
 
