@@ -21,6 +21,4 @@ $post_password_salt = crypt($post_password,$salt);
 #create user and validateLogin
 $UserMasterObject = new UserClass();
 $json_out['login'] = $UserMasterObject->validateLoginJson($post_username,$post_password_salt);
-$post_username = strtolower(trim($_POST['username']));
-$post_password = trim($_POST['password']);
 ?>
