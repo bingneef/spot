@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 /*****************************
 SpotClass.php
 *****************************/
 
-class SpotClass { 
+class SpotClass {
     protected $spot_id;
     protected $spot_user_id;
     protected $spot_track_id;
@@ -14,19 +14,19 @@ class SpotClass {
     protected $spot_date_insert;
     protected $spot_last_update;
 
-    private $prefix = 'spot_hashtag_'; 
-    
+    private $prefix = 'spot_hashtag_';
+
     /*****************************
     * construct class
     *****************************/
-    public function __construct($spot_id = 0) { 
+    public function __construct($spot_id = 0) {
         $this->spot_id = $spot_id;
-        if($this->spot_id > 0){      
+        if($this->spot_id > 0){
         	return $this->loadSpot();
         } else {
             return false;
         }
-    } 
+    }
 
     /*****************************
     * print values of class
@@ -43,7 +43,7 @@ class SpotClass {
     	$result = db_query($query);
 
         $spot_found = false;
-    	while($row = mysql_fetch_array($result)){
+    	while($row = mysqli_fetch_array($result)){
             $spot_found = true;
     		$this->spot_user_id = $row['spot_user_id'];
     		$this->spot_track_id = $row['spot_track_id'];
@@ -62,9 +62,9 @@ class SpotClass {
      *****************************/
     public function newSpot($spot_user_id,$spot_track_id,$spot_lat,$spot_lon,$spot_description){
         $this->spot_user_id = $spot_user_id;
-        $this->spot_track_id = $spot_track_id; 
+        $this->spot_track_id = $spot_track_id;
         $this->spot_lat = $spot_lat;
-        $this->spot_lon = $spot_lon; 
+        $this->spot_lon = $spot_lon;
         $this->spot_description = $spot_description;
         $this->spot_date_insert = date('Y-m-d H:i:s');
 
@@ -108,7 +108,7 @@ class SpotClass {
 
         $icon = '';
         $track_name = '';
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $track_name = $row['track_name'];
             $icon = $row['track_primary_color'] . '_' . $row['track_secondary_color'] . '.svg';
         }
@@ -130,6 +130,6 @@ class SpotClass {
     /*****************************
     * general setters
     *****************************/
-} 
+}
 
 ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*****************************
 
@@ -6,18 +6,18 @@ GroupClass.php
 
 *****************************/
 
-class GroupClass { 
+class GroupClass {
     protected $group_id;
 
     private $prefix = 'spot_hashtag_';
-    
+
     /*****************************
     * construct class
     *****************************/
-    public function __construct($group_id = 0) { 
+    public function __construct($group_id = 0) {
         $this->group_id = $group_id;
         return;
-    } 
+    }
 
     /*****************************
     * get all group users
@@ -27,7 +27,7 @@ class GroupClass {
     	$result = db_query($query);
 
     	$user_ids = array();
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $user_ids[] = $row['user_id'];
         }
 
@@ -41,6 +41,6 @@ class GroupClass {
     /*****************************
     * general setters
     *****************************/
-} 
+}
 
 ?>

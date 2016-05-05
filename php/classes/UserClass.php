@@ -43,7 +43,7 @@ class UserClass {
     	$result = db_query($query);
 
         $user_found = false;
-    	while($row = mysql_fetch_array($result)){
+    	while($row = mysqli_fetch_array($result)){
             $user_found = true;
     		$this->user_username = $row['user_username'];
     		$this->user_password = $row['user_password'];
@@ -62,7 +62,7 @@ class UserClass {
         $query = "SELECT * FROM " . $this->prefix . "user WHERE `user_username` = '" . $user_username . "' LIMIT 1";
         $result = db_query($query);
 
-        if(mysql_num_rows($result) > 0){
+        if(mysqli_num_rows($result) > 0){
             return array('taken','Username already taken.');
         }
 
@@ -109,7 +109,6 @@ class UserClass {
     *****************************/
     public function validateLogin($user_username,$user_password) {
         $query = "SELECT * FROM " . $this->prefix . "user WHERE `user_username` = '" . $user_username . "' AND `user_password` = '" . $user_password . "' LIMIT 1";
-        var_dump($query);
         $result = db_query($query);
 
         $user_found = false;
@@ -152,7 +151,7 @@ class UserClass {
         $query = "SELECT track_id FROM " . $this->prefix . "group_track WHERE group_id=" . $this->user_group;
         $result = db_query($query);
 
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $tracks[] = $row['track_id'];
         }
 

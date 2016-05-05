@@ -1,32 +1,32 @@
-<?php 
+<?php
 
 /*****************************
 TrackClass.php
 *****************************/
 
-class TrackClass { 
-    protected $track_id; 
-    protected $track_name; 
+class TrackClass {
+    protected $track_id;
+    protected $track_name;
     protected $track_icon;
     protected $track_primary_color;
     protected $track_secondary_color;
-    protected $track_date_insert; 
-    protected $track_last_update; 
-    protected $limit_spots = 1; 
+    protected $track_date_insert;
+    protected $track_last_update;
+    protected $limit_spots = 1;
 
     private $prefix = 'spot_hashtag_';
-    
+
     /*****************************
     * construct class
     *****************************/
-    public function __construct($track_id = 0) { 
+    public function __construct($track_id = 0) {
     	$this->track_id = $track_id;
 
         if($this->track_id != 0){
             $this->loadTrack();
         }
-    	
-    } 
+
+    }
 
     /*****************************
     * print values of class
@@ -42,21 +42,21 @@ class TrackClass {
     	$query = 'SELECT * FROM ' . $this->prefix . 'track WHERE track_id = ' . $this->track_id;
     	$result = db_query($query);
 
-    	while($row = mysql_fetch_array($result)){
+    	while($row = mysqli_fetch_array($result)){
             $this->track_name = $row['track_name'];
     		$this->track_primary_color = $row['track_primary_color'];
             $this->track_secondary_color = $row['track_secondary_color'];
     		$this->track_date_insert = $row['track_date_insert'];
     		$this->track_last_update = $row['track_last_update'];
     	}
-    }   
+    }
 
     /*****************************
     * handle values for new track and call insert
      *****************************/
     public function newTrack($track_name,$track_primary_color,$track_secondary_color){
         $this->track_name = $track_name;
-        $this->track_primary_color = $track_primary_color; 
+        $this->track_primary_color = $track_primary_color;
         $this->track_secondary_color = $track_secondary_color;
         $this->track_date_insert = date('Y-m-d H:i:s');
         return $this->insertTrack();
@@ -72,7 +72,7 @@ class TrackClass {
 
         #return error
         return;
-    } 
+    }
 
     /*****************************
     * update track
@@ -102,7 +102,7 @@ class TrackClass {
 
         #return error
         return;
-    } 
+    }
 
     /*****************************
     * get updated spots since external $last_update
@@ -112,7 +112,7 @@ class TrackClass {
         $result = db_query($query);
 
         $spot_ids = array();
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $spot_ids[] = $row['spot_id'];
         }
 
@@ -128,7 +128,7 @@ class TrackClass {
         $result = db_query($query);
 
         $spot_ids = array();
-        while($row = mysql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
             $spot_ids[] = $row['spot_id'];
         }
 
@@ -167,6 +167,6 @@ class TrackClass {
     public function setIcon(){
         $this->track_icon = $this->track_primary_color . '_' . $this->track_secondary_color . '.svg';
     }
-} 
+}
 
 ?>
