@@ -21,7 +21,7 @@ function db_query($query){
 	include('dbinfo.inc.php');
 
 	#Connect to Database
-	$mysqli = new mysqli($db_localhost,$db_username,$db_password, $db_database) or die('test');
+	$mysqli = new mysqli($db_localhost,$db_username,$db_password, $db_database);
 
 	if ($result = mysqli_query($mysqli, $query)) {
     mysqli_close($mysqli);
