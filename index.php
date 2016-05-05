@@ -4,15 +4,30 @@ error_reporting(E_ALL);
 
 #start session
 session_start();
-echo("here");
 
 #require required files
 require 'php/constants.php';
-echo("here");
 require 'php/dbinfo.inc.php';
-echo("here");
 require 'php/tools.php';
-echo("here");
 require 'php/user.php';
-echo("here");
+
+#get posted username & password
+$post_username = strtolower(trim($_POST['username']));
+$post_password = trim($_POST['password']);
+
+#crypt password
+$post_password_salt = crypt($post_password,$salt);
+
+#create user and validateLogin
+$UserMasterObject = new UserClass();
+$json_out['login'] = $UserMasterObject->validateLoginJson($post_username,$post_password_salt);#get posted username & password
+$post_username = strtolower(trim($_POST['username']));
+$post_password = trim($_POST['password']);
+
+#crypt password
+$post_password_salt = crypt($post_password,$salt);
+
+#create user and validateLogin
+$UserMasterObject = new UserClass();
+$json_out['login'] = $UserMasterObject->validateLoginJson($post_username,$post_password_salt);
 ?>
