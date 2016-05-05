@@ -21,7 +21,7 @@ module.exports = function (shipit) {
     },
     production: {
       servers: 'bing@5.157.85.46',
-      branch: 'feature/snowflake',
+      branch: 'master',
       environment: 'production'
     }
   });
