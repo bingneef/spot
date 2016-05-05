@@ -21,17 +21,15 @@ function db_query($query){
 	include('dbinfo.inc.php');
 
 	#Connect to Database
-	mysqli_connect($db_localhost,$db_username,$db_password, $db_database) or die( "Unable to select database");
-	// mysqli_select_db($db_database) or die( "Unable to select database");
+	$mysqli = new mysqli($db_localhost,$db_username,$db_password, $db_database);
 
-	#get result
-	$result = mysqli_query($query);
-
-	#close db
-	mysqli_close();
-
-	#return result
-	return $result;
+	if ($result = mysqli_query($mysqli, $query)) {
+    mysqli_close($link);
+    return $result;
+	} else {
+		echo("error");
+		return null;
+	}
 }
 
 /***********************
