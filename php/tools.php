@@ -19,7 +19,7 @@ run database query
 function db_query($query){
 	#get variables
 	include('dbinfo.inc.php');
-	
+
 	#Connect to Database
 	mysql_connect($db_localhost,$db_username,$db_password);
 	mysql_select_db($db_database) or die( "Unable to select database");
@@ -40,7 +40,7 @@ run database query and return added id
 function db_query_return_id($query){
 	#get variables
 	include('dbinfo.inc.php');
-	
+
 	#Connect to Database
 	mysql_connect($db_localhost,$db_username,$db_password);
 	mysql_select_db($db_database) or die( "Unable to select database");
@@ -52,7 +52,7 @@ function db_query_return_id($query){
 
 	#close db
 	mysql_close();
-	
+
 	#return mysql_insert_id
 	return $inserted_id;
 }

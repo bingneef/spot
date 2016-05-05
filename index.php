@@ -1,8 +1,8 @@
 <?php
 /**************************************************
-                                                   
- _____     _            _          _____ _         
-|   __|___|_|___ ___   | |_ _ _   | __  |_|___ ___ 
+
+ _____     _            _          _____ _
+|   __|___|_|___ ___   | |_ _ _   | __  |_|___ ___
 |__   | . | |   | . |  | . | | |  | __ -| |   | . |
 |_____|  _|_|_|_|_  |  |___|_  |  |_____|_|_|_|_  |
       |_|       |___|      |___|              |___|
@@ -52,7 +52,7 @@ require 'php/user.php';
 * insert header
 ***********************************/
 require 'php/parts/header.php';
-  
+
 ?>
 
 <body>
@@ -85,7 +85,7 @@ require 'php/parts/loader.php';
 
 if(!isset($UserMasterObject) || !$UserMasterObject->loggedIn()){
 	require 'php/views/login.php';
-} else {	
+} else {
 	if($UserMasterObject->getLevel() == 0 || isset($_GET['agent'])){
 		require 'php/views/spotter/spot.php';
 	} else {
@@ -121,9 +121,9 @@ if(!isset($UserMasterObject) || !$UserMasterObject->loggedIn()){
 			}
 		}
 
-		
+
 	}
-	
+
 }
 
 ?>
