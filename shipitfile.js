@@ -25,5 +25,12 @@ module.exports = function (shipit) {
       environment: 'production'
     }
   });
+
+  shipit.blTask('gulp:build', function() {
+    return shipit.local('cp php/dbinfo.inc.php ' + shipit.config.workspace + '/php/dbinfo.inc.php')
+  });
+
+  shipit.on('fetched', function() {
+    return shipit.start('gulp:build');
+  });
 };
-1
