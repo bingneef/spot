@@ -1,0 +1,192 @@
+/*****************************
+style.css
+general CSS
+*****************************/
+
+html { 
+  background: #f3989b;
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: 61px;
+}
+
+#loader {
+	display: none;
+	text-align: center;
+}
+
+#content {
+	/*display: none;*/
+	width: 100%;
+}
+
+
+.ball-grid-pulse {
+	z-index: 100;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.full-width {
+	width: 100%;
+}
+
+#status-bar-outer {
+	padding: 12px;
+	position: fixed;
+	text-align: center;
+	display: none;
+	bottom: 12px;
+	width: 100%;
+	z-index:100;
+}
+
+#status-bar {
+	padding: 6px 12px;
+	background: white;
+	max-width: 80%;
+	/*right: 12px;*/
+	border-radius: 12px;
+	display: inline-block;
+}
+
+.show-new {
+	cursor: pointer;
+}
+
+.show-new:hover {
+	color: #039be5 !important;
+}
+
+.spot.btn-large {
+	margin-top:10px;
+	line-height: 120px;
+	font-size: 24px;
+}
+
+.btn-floating {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+#map-legend {
+	position: absolute;
+	top: 36px;
+	display: none;
+	color: white;
+}
+
+
+#show-legend {
+	display: block;
+	z-index: 101;
+}
+
+.padding-container-page {
+	padding-top:1.5rem; 
+	padding-bottom:1.5rem;
+}
+
+.dropdown-content.select-dropdown {
+	z-index: 2;
+}
+
+.gimme-space {
+	margin-top: 24px;
+}
+
+.map-legend-col {
+	text-align: center;
+}
+
+.map-legend-col h5 {
+	margin-bottom: 4px;
+}
+
+select.browser-default {
+	margin-top: 48px;
+}
+
+@media only screen and (max-width: 601px){
+	#map-legend {
+		top:56px;
+	}
+}
+
+/*****************
+UPDATE MATERIALIZE
+*****************/
+nav .brand-logo {
+	font-size: 1.5rem;
+	margin-left: 0px;
+}
+
+html {
+	margin-bottom: 0;
+}
+
+#map-filter input[type=range] {
+	border: none;
+}
+
+@media only screen and (min-width: 601px){
+	.navbar-fixed {
+		height: 36px;
+	}
+
+	nav {
+		height: 36px;
+		line-height: 36px;
+	}
+
+	nav .brand-logo {
+		margin-left: 24px;
+	}
+
+	nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+		line-height: 36px;
+		height: 36px;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.spot.btn-large {
+		margin-top: 0;
+	}
+
+	.col.spot {
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.spot.btn-large {
+		margin-top: 0;
+	}
+
+	.col.spot {
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width : 992px){
+	nav .brand-logo{
+		margin-left: 24px;
+		left:0;
+		-webkit-transform:translateX(0);
+		-moz-transform:translateX(0);
+		-ms-transform:translateX(0);
+	}
+}
+
+
+
+
