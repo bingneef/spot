@@ -24,7 +24,7 @@ function db_query($query){
 	$mysqli = new mysqli($db_localhost,$db_username,$db_password, $db_database) or die('test');
 
 	if ($result = mysqli_query($mysqli, $query)) {
-    mysqli_close($link);
+    mysqli_close($mysqli);
     return $result;
 	} else {
 		echo("error");
