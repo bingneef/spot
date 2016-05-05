@@ -21,14 +21,14 @@ function db_query($query){
 	include('dbinfo.inc.php');
 
 	#Connect to Database
-	mysql_connect($db_localhost,$db_username,$db_password);
-	mysql_select_db($db_database) or die( "Unable to select database");
+	mysqli_connect($db_localhost,$db_username,$db_password);
+	mysqli_select_db($db_database) or die( "Unable to select database");
 
 	#get result
-	$result = mysql_query($query);
+	$result = mysqli_query($query);
 
 	#close db
-	mysql_close();
+	mysqli_close();
 
 	#return result
 	return $result;
@@ -42,18 +42,18 @@ function db_query_return_id($query){
 	include('dbinfo.inc.php');
 
 	#Connect to Database
-	mysql_connect($db_localhost,$db_username,$db_password);
-	mysql_select_db($db_database) or die( "Unable to select database");
+	mysqli_connect($db_localhost,$db_username,$db_password);
+	mysqli_select_db($db_database) or die( "Unable to select database");
 
 	#get result
-	mysql_query($query);
+	mysqli_query($query);
 
-	$inserted_id = mysql_insert_id();
+	$inserted_id = mysqli_insert_id();
 
 	#close db
-	mysql_close();
+	mysqli_close();
 
-	#return mysql_insert_id
+	#return mysqli_insert_id
 	return $inserted_id;
 }
 
