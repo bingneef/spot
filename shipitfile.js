@@ -6,7 +6,6 @@ module.exports = function (shipit) {
     default: {
       workspace: 'tmp',
       repositoryUrl: 'git@github.com:bingneef/spot.git',
-      deployTo: '/var/www/spot/',
       dirToCopy: '',
       ignores: ['.git', 'node_modules'],
       keepReleases: 10,
@@ -22,7 +21,12 @@ module.exports = function (shipit) {
     production: {
       servers: 'bing@5.157.85.46',
       branch: 'master',
-      environment: 'production'
+      deployTo: '/var/www/spot/'
+    },
+    staging: {
+      servers: 'bing@5.157.85.46',
+      branch: 'develop',
+      deployTo: '/var/www/spot/'
     }
   });
 
